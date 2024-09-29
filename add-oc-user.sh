@@ -7,6 +7,7 @@ pass=$2			# pass=radmin
 # scp lab@utility:/home/lab/ocp4/auth/kubeconfig .
 # export KUBECONFIG=kubeconfig
 # oc get oauth cluster -o json > oauth.yaml
+
 oldpods="$(oc get pod -n openshift-authentication -o name)"
 secret=$(oc get oauth cluster -o jsonpath='{.spec.identityProviders[0].htpasswd.fileData.name}')
 tmpdir=$(mktemp -d)								# mktemp ?
